@@ -86,3 +86,5 @@ Cmd: compileSnippet
   api=14 type=0 insize=912 outsize=3741 kw=POINT_COOKIE SHADOWS_CUBE SHADOWS_SOFT _ALPHATEST_ON pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP ok=1
 Cmd: disassembleShader
   api=23 insize=3741 outsize=3741 ok=1
+
+Quitting shader compiler process

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
-    <ImageTarget name="Universal-Studios-Hollywood-Map" size="50.000000 32.695312" />
+    <ImageTarget name="Universal-Studios-Hollywood-Map" size="50.000000 32.525002" />
+    <ImageTarget name="fw" size="0.300000 0.228955" />
+    <ImageTarget name="san-francisco-map-4" size="0.220000 0.247862" />
   </Tracking>
 </QCARConfig>
