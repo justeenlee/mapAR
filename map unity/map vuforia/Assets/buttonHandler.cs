@@ -12,8 +12,16 @@ public class buttonHandler : MonoBehaviour, IVirtualButtonEventHandler {
 	private Color river;
 	private Color turquoise;
 
+
+	Animator shrekAnimator;
+	bool isVisible = true;
+	GameObject shrekBuilding;
+	GameObject entrance;
+	Animator entranceAnimator;
+
 	// Use this for initialization
 	void Start () {
+		//GameObject.Find ("map").GetComponent<Renderer> ().material.color.a = 0; 
 		
 		//button2Rep = GameObject.Find ("button2Rep");
 		//buttonARep = GameObject.Find ("buttonARep");
@@ -22,6 +30,11 @@ public class buttonHandler : MonoBehaviour, IVirtualButtonEventHandler {
 //		hpworldRep.GetComponent<Renderer> ().material.color = river;
 //		curLocationRep.GetComponent<Renderer> ().material.color = river;
 
+
+		shrekBuilding = GameObject.Find ("shrek building");
+		shrekAnimator = shrekBuilding.GetComponent<Animator> ();
+		entrance = GameObject.Find ("entrance");
+		entranceAnimator = entrance.GetComponent<Animator> ();
 
 		VirtualButtonBehaviour[] vbs = GetComponentsInChildren<VirtualButtonBehaviour>();
 		for (int i = 0; i < vbs.Length; ++i)
@@ -60,23 +73,38 @@ public class buttonHandler : MonoBehaviour, IVirtualButtonEventHandler {
 				Debug.Log ("===================== " + btn.VirtualButtonName + " selected \n");
 				selected [1] = true;
 				hpworldRep.GetComponent<Renderer> ().material.color = turquoise;
-				//hpworldRep.SetActive (true);
+				path.SetActive (true);
 			} else {
 				Debug.Log ("===================== " + btn.VirtualButtonName + " DE selected \n");
 				selected [1] = false;
-				hpworldRep.GetComponent<Renderer> ().material.color = Color.clear;
-				//hpworldRep.SetActive (false);
+				hpworldRep.GetComponent<Renderer> ().material.color = Color.white; //Color.clear
+				path.SetActive (false);
 			}
 
-			Debug.Log ("\n"+hpworldRep.GetComponent<MeshRenderer>().material.color);
+			Debug.Log ("\n" + hpworldRep.GetComponent<MeshRenderer> ().material.color);
 
-		} 
+		} else if (btn.VirtualButtonName == "ses") {
+			if (isVisible) {
+				shrekAnimator.SetTrigger ("Sink");
+				entranceAnimator.SetTrigger ("Sink");
+				isVisible = false;
+				//shrekBuilding.SetActive (false);
+				//entrance.SetActive (false);
+			} else {
+				//shrekBuilding.SetActive (true);
+				//entrance.SetActive (true);
+				shrekAnimator.SetTrigger ("Rise");
+				entranceAnimator.SetTrigger ("Rise");
+				isVisible = true;
+			}
 
-		if (selected [0] && selected [1]) {
-			path.SetActive (true);
-		} else {
-			path.SetActive (false);
 		}
+
+//		if (selected [0] && selected [1]) {
+//			path.SetActive (true);
+//		} else {
+//			path.SetActive (false);
+//		}
 
 	}
 
